@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/categoryImageView"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryImageView"
+            tools:text="Name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

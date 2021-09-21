@@ -15,7 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentHomeBinding
-    private val epoxyViewModel: HomeEpoxyViewModel by viewModels()
+    private val viewModel: HomeEpoxyViewModel by viewModels()
+    private lateinit var homeEpoxyController: HomeEpoxyController
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,16 +29,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val controller = HomeEpoxyController()
-        _binding.categoryView.setController(controller)
 
-        epoxyViewModel.fetchOpportunityList().observe(viewLifecycleOwner, {
-            //it.status bizim için bir state
+        viewModel.fetchOpportunityList().observe(viewLifecycleOwner, {
+
             when (it.status) {
-                //Bu 3 farklı state de artık ui'ı yönetebilir hale geldik
                 Resource.Status.LOADING -> {
                 }
                 Resource.Status.SUCCESS -> {
+
+                    initEpoxyController()
+
                 }
                 Resource.Status.ERROR -> {
                 }
@@ -44,6 +46,10 @@ class HomeFragment : Fragment() {
         })
 
     }
+    private fun initEpoxyController() {
+        homeEpoxyController = HomeEpoxyController()
+        _binding.categoryView.setController(homeEpoxyController)
+        }
 
     companion object {
         @JvmStatic

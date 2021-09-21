@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.epoxyapp.databinding.FragmentHomeBinding
-import com.example.epoxyapp.ui.home.epoxy.HomeController
+import com.example.epoxyapp.ui.home.epoxy.HomeEpoxyController
 import com.example.epoxyapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,8 +27,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val controller = HomeController()
-        _binding.categoryView.setControllerAndBuildModels(controller)
+        val controller = HomeEpoxyController()
+        _binding.categoryView.setController(controller)
 
         epoxyViewModel.fetchOpportunityList().observe(viewLifecycleOwner, {
             //it.status bizim için bir state

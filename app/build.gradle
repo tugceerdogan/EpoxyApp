@@ -57,7 +57,7 @@ dependencies {
 
     //Epoxy
     implementation "com.airbnb.android:epoxy:4.6.2"
-    annotationProcessor "com.airbnb.android:epoxy-processor:4.6.2"
+    kapt "com.airbnb.android:epoxy-processor:4.6.2"
 
     //Dagger
     implementation 'com.google.dagger:hilt-android:2.38.1'
@@ -76,7 +76,7 @@ dependencies {
     // Coroutine Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"

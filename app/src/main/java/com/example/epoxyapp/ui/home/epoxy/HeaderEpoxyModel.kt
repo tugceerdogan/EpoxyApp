@@ -1,7 +1,6 @@
 package com.example.epoxyapp.ui.home.epoxy
 
 import android.view.View
-import android.view.ViewParent
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
@@ -9,8 +8,8 @@ import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.example.epoxyapp.R
 import com.example.epoxyapp.databinding.ItemHeaderBinding
 
-@EpoxyModelClass()
-abstract class HomeHeaderModel : EpoxyModelWithHolder<HomeHeaderModel.HeaderHolder>() {
+@EpoxyModelClass(layout = R.layout.item_header)
+abstract class HeaderEpoxyModel : EpoxyModelWithHolder<HeaderEpoxyModel.HeaderHolder>() {
 
     @field:EpoxyAttribute
     open var value: CharSequence? = null

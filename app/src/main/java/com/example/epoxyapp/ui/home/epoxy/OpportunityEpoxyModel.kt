@@ -1,28 +1,34 @@
 package com.example.epoxyapp.ui.home.epoxy
 
 import android.view.View
-import android.view.ViewParent
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.bumptech.glide.Glide
 import com.example.epoxyapp.R
-import com.example.epoxyapp.data.entity.opportunities.Opportunities
 import com.example.epoxyapp.databinding.ItemOpportunityBinding
 
-@EpoxyModelClass()
-abstract class HomeOpportunityModel : EpoxyModelWithHolder<HomeOpportunityModel.OpportunityHolder>() {
+@EpoxyModelClass(layout = R.layout.item_opportunity)
+abstract class OpportunityEpoxyModel : EpoxyModelWithHolder<OpportunityEpoxyModel.OpportunityHolder>() {
 
-    @EpoxyAttribute
-    lateinit var opportunity: Opportunities
+
+    @field:EpoxyAttribute
+    open var name: CharSequence? = null
+
+    @field:EpoxyAttribute
+    open var price: CharSequence? = null
+
+    @field:EpoxyAttribute
+    open var imageUrl: String? = null
+
 
     override fun bind(holder: OpportunityHolder) {
         holder.binding.apply {
-            productNameTextView.text = opportunity.name
-            productPriceTextView.text = opportunity.price
+            productNameTextView.text = name
+            productPriceTextView.text = price
             Glide.with(productImageView)
-                .load(opportunity.imageUrl)
+                .load(imageUrl)
                 .placeholder(R.drawable.ic_launcher_background)
                 .fitCenter().centerCrop()
                 .into(productImageView)
